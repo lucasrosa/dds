@@ -11,5 +11,16 @@ func NewDomainService(repo SecondaryPort) PrimaryPort {
 }
 
 func (p *port) CalculateDeceptiveScore(domain *Domain) (int, error) {
-	return 1, nil
+	keywords, err := p.repo.FindAllKeywords()
+
+	if err != nil {
+		return 0, err
+	}
+
+	for _, k := range keywords {
+		if k == domain.Name {
+			return 100, nil
+		}
+	}
+	return 0, nil
 }
