@@ -17,8 +17,8 @@ func (p *port) CalculateDeceptiveScore(domain *Domain) (int, error) {
 		return 0, err
 	}
 
-	for _, k := range keywords {
-		if k == domain.Name {
+	for _, keyword := range keywords {
+		if contains(domain.Name, keyword) {
 			return 100, nil
 		}
 	}
