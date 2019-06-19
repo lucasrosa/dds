@@ -14,6 +14,14 @@ func (r *domainRepository) FindAllKeywords() ([]string, error) {
 	keywords := []string{
 		"itau",
 		"unibanco",
+		"bancodobrasil",
+		"banrisul",
+		"safra",
+		"bradesco",
+		"bndes",
+		"santander",
+		"hsbc",
+		"caixa",
 	}
 
 	return keywords, nil
