@@ -69,6 +69,8 @@ go test ./... -cover
 
 ### TODO
 
+- [ ] Create an architecture diagram
+- [ ] Create a flow diagram for how the score is defined
 - [ ] Remove tld (cleanup)
 - [ ] Convert to lowercase (cleanup)
 - [ ] Convert from punycode (cleanup)
