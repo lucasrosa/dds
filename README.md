@@ -1,3 +1,7 @@
+# Enterprise Deceptive Domain Score
+![coverage](https://img.shields.io/badge/coverage-94%25-brightgreen.svg)
+![build](https://img.shields.io/badge/build-passing-brightgreen.svg)
+
 ## Features
 **Feature**: Get the domain score  
     As a domain analyst  
@@ -26,26 +30,42 @@
     **When** I run the script on it  
     **Then** it should result in a score of **50**  
 
-## Requirements
-Remember to set ```export GO111MODULE=on;```
+# Code
+## Business Logic
+### Entities
+- domain
+- keyword
 
-## Building and deploying
+### Public
+- Domain
+    - GetDeceptiveScore
+
+## Requirements
+### For the core business logic
+- Go 1.12.x
+- Remember to set ```export GO111MODULE=on;```
+
+### For the AWS Serverless adapter
+- Serverless Framework >=1.28.0
+- An AWS account
+
+## Running tests
+```
+// In the root folder of the repository run
+go test ./...
+
+// To run tests showing the test coverage
+go test ./... -cover
+```
+
+## Building and deploying the AWS Serverless adapter
 
 #### How to build
 ```make build```
 #### How to deploy
 ```make deploy``` or ```sls deploy```
 #### Deploying a single function
-```sls deploy -f clientget```
-
-## Business Logic
-### Entities
-- domain
--keyword
-
-### Public
-- Domain
-    - GetDeceptiveScore      
+```sls deploy -f clientget```      
 
 ### TODO
 
@@ -54,4 +74,7 @@ Remember to set ```export GO111MODULE=on;```
 - [ ] Convert from punycode (cleanup)
 - [ ] Different check for prefix/suffix (login, signin, verify...)
 - [ ] Artificial intelligence (Machine learning) detection
+- [ ] Create Go Benchmarks :revolving_hearts:
+- [ ] Create Go Examples
+- [ ] Run each algorithm in a separate Go Routine :heart_eyes:
 
