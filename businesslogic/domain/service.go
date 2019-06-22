@@ -17,14 +17,20 @@ func (p *port) CalculateDeceptiveScore(domain *Domain) (int, error) {
 	if err != nil {
 		return 0, err
 	}
-
+	score := 0
 	for _, keyword := range keywords {
-		score := calculateScore(keyword, domain.Name)
-		if score > 0 {
-			return score, nil
+		currentScore := calculateScore(keyword, domain.Name)
+
+		// These checks allows the algorithm to look at all keywords
+		// until it finds the one that has the highest score
+		if currentScore == 100 {
+			return 100, nil
+		} else if currentScore > score {
+			score = currentScore
 		}
 	}
-	return 0, nil
+
+	return score, nil
 }
 
 func calculateScore(keyword Keyword, domainName string) int {
