@@ -17,8 +17,7 @@ func tolaratedDistance(needleLength int) int {
 	
 	return distance
 }
-
-// quando for marca, o score é maior do que quando for palavra do dicionario
+// calculateLevenshtein returns true if the words match the distance given by tolaratedDistance()
 func calculateLevenshtein(haystack, needle string) bool {
 	nl := len(needle)
 	hl := len(haystack)

@@ -8,11 +8,15 @@ type PrimaryPort interface {
 	CalculateDeceptiveScore(domain *Domain) (int, error)
 }
 
+type Keyword struct {
+	Word string
+	KeywordType string
+}
 // SecondaryPort represents the actions that will be taken
 // by the application domain to ‘drive’ adapters.
 // In this case, this is always as a result of the application
 // domain initiating the interaction, generally in order to
 // communicate with an external system or device
 type SecondaryPort interface {
-	FindAllKeywords() ([]string, error)
+	FindAllKeywords() ([]Keyword, error)
 }
