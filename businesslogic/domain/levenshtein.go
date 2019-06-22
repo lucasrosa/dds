@@ -1,22 +1,23 @@
 package domain
 
 import (
-	"github.com/agext/levenshtein" 
-) 
+	"github.com/agext/levenshtein"
+)
 
 func tolaratedDistance(needleLength int) int {
 	distance := 3 // for words bigger than 16 characters
 
 	if needleLength < 4 {
 		distance = 0
-	}else if needleLength >= 4 && needleLength <= 8 {
+	} else if needleLength >= 4 && needleLength <= 8 {
 		distance = 1
-	}  else if needleLength  > 8 && needleLength  <= 16 {
+	} else if needleLength > 8 && needleLength <= 16 {
 		distance = 2
 	}
-	
+
 	return distance
 }
+
 // calculateLevenshtein returns true if the words match the distance given by tolaratedDistance()
 func calculateLevenshtein(haystack, needle string) bool {
 	nl := len(needle)

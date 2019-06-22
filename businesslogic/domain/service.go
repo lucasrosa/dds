@@ -3,14 +3,16 @@ package domain
 type port struct {
 	repo SecondaryPort
 }
+
 // NewDomainService receives a Secondary Port of domain and insantiates a Primary Port
 func NewDomainService(repo SecondaryPort) PrimaryPort {
 	return &port{
 		repo,
 	}
 }
+
 // CalculateDeceptiveScore calculates the deceptiveness score of a domain name
-// If it is a brand name the score is bigger than when it is a word from the dictionary   
+// If it is a brand name the score is bigger than when it is a word from the dictionary
 func (p *port) CalculateDeceptiveScore(domain *Domain) (int, error) {
 	keywords, err := p.repo.FindAllKeywords()
 

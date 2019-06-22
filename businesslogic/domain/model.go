@@ -8,6 +8,6 @@ type Domain struct {
 // Keyword is used to save the keyword itself and it's type. The type indicates
 // whether the keyword is a brand name or a common word
 type Keyword struct {
-	Word string
+	Word        string
 	KeywordType string
 }
