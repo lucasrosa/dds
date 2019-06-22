@@ -1,3 +1,6 @@
+# Requirements
+Remember to set export GO111MODULE=on; 
+
 # Building and deploying
 
 #### How to build
