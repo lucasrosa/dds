@@ -46,6 +46,8 @@ func calculateScore(keyword Keyword, domainName string) int {
 			return 80
 		}
 		return 70
+	} else if containsNumbers(domainName) {
+		return 50
 	}
 
 	return 0

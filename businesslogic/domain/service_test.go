@@ -65,6 +65,8 @@ func TestCalculateDeceptiveScore(t *testing.T) {
 		{domain: Domain{"itau"}, expectedScore: 100},
 		{domain: Domain{"itamu"}, expectedScore: 80},
 		{domain: Domain{"atendimentobb"}, expectedScore: 100},
+		{domain: Domain{"hello2019"}, expectedScore: 50},
+		{domain: Domain{"popap0la"}, expectedScore: 50},
 	}
 
 	for i, c := range cases {
