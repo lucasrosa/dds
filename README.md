@@ -8,11 +8,11 @@
 
 - The domain will be compared to a list of keywords
 - The input is a domain name
-- Natural language matching (bahía == bahia)
-- The score is 100 if the domain matches a keyword exactly and the keyword is a brand name
-- The score is 90 if the domain matches a keyword exactly and the keyword is a word from the dictionary
-- The score is 80 if the domain matches a keyword by changing/adding/deleting some letters and the keyword is a brand name
-- The score is 70 if the domain matches a keyword by changing/adding/deleting some letters and the keyword is a word from the dictionary
+- Natural language must be matched (vísa == visa)
+- The score is 100 if part of the domain that matches a keyword exactly and the keyword is a brand name
+- The score is 90 if part of the domain matches a keyword exactly and the keyword is a common word
+- The score is 80 if part of the domain is similar and the keyword is a brand name
+- The score is 70 if part of the domain is similar and the keyword is a common word
 - The score is 50 if the domain contains numbers
 - The score is 0 if the domain is not in any of the categories listed above
 
@@ -41,19 +41,17 @@ Remember to set ```export GO111MODULE=on;```
 ## Business Logic
 ### Entities
 - domain
+-keyword
 
 ### Public
 - Domain
-    - GetDeceptiveScore
-    https://godoc.org/golang.org/x/text/search
-    https://github.com/agext/levenshtein
-    
+    - GetDeceptiveScore      
 
 ### TODO
 
-- [ ] Remove tld
-- [ ] Convert to lowercase
-- [ ] Convert from punycode
+- [ ] Remove tld (cleanup)
+- [ ] Convert to lowercase (cleanup)
+- [ ] Convert from punycode (cleanup)
 - [ ] Different check for prefix/suffix (login, signin, verify...)
 - [ ] Artificial intelligence (Machine learning) detection
 
