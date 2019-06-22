@@ -19,17 +19,26 @@ func (p *port) CalculateDeceptiveScore(domain *Domain) (int, error) {
 	}
 
 	for _, keyword := range keywords {
-		if contains(domain.Name, keyword.Word) {
-			if keyword.KeywordType == "brand" {
-				return 100, nil
-			}
-			return 90, nil
-		} else if calculateLevenshtein(domain.Name, keyword.Word) {
-			if keyword.KeywordType == "brand" {
-				return 80, nil
-			}
-			return 70, nil
+		score := calculateScore(keyword, domain.Name)
+		if score > 0 {
+			return score, nil
 		}
 	}
 	return 0, nil
+}
+
+func calculateScore(keyword Keyword, domainName string) int {
+	if contains(domainName, keyword.Word) {
+		if keyword.KeywordType == "brand" {
+			return 100
+		}
+		return 90
+	} else if calculateLevenshtein(domainName, keyword.Word) {
+		if keyword.KeywordType == "brand" {
+			return 80
+		}
+		return 70
+	}
+
+	return 0
 }

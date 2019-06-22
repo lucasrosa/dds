@@ -5,8 +5,8 @@ import (
 )
 
 type domainRepository struct{}
-
-func NewMemoryDomainRepository() SecondaryPort {
+// newMemoryDomainRepository instantiates a secondary port for the tests
+func newMemoryDomainRepository() SecondaryPort {
 	return &domainRepository{}
 }
 
@@ -54,7 +54,7 @@ func (r *domainRepository) FindAllKeywords() ([]Keyword, error) {
 }
 
 func TestCalculateDeceptiveScore(t *testing.T) {
-	domainRepo := NewMemoryDomainRepository()
+	domainRepo := newMemoryDomainRepository()
 	domainService := NewDomainService(domainRepo)
 	
 	cases := []struct{
