@@ -2,10 +2,6 @@ package domain
 
 import "testing"
 
-// func TestCalculate(t *testing.T) {
-// 	t.Error(calculate())
-// }
-
 func TestTolaratedDistance(t *testing.T) {
 	cases:= []struct{
 		needleLength int
