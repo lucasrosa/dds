@@ -77,3 +77,13 @@ func TestCalculateDeceptiveScore(t *testing.T) {
 		}
 	}
 }
+
+
+func BenchmarkCalculateScore(b *testing.B) {
+
+	keyword := Keyword{Word: "cielo", KeywordType: "brand"}
+	domainName := "atendimentocielo"
+	for n:= 0; n < b.N; n++ {
+		calculateScore(keyword, domainName)
+	}
+}
