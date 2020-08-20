@@ -21,12 +21,12 @@
 - The score is 0 if the domain is not in any of the categories listed above
 
 **Scenario**: testing a deceptive domain  
-    **Given** the domain "**atendimentobb.com**"  
+    **Given** the domain "**visa-card-help.com**"  
     **When** I run the script on it  
     **Then** it should result in a score of **100** 
 
 **Scenario**: testing a domain that contains a number  
-    **Given** the domain "**meufutebol2019.com**"  
+    **Given** the domain "**nfl-mega-league2019.com**"  
     **When** I run the script on it  
     **Then** it should result in a score of **50**  
 
@@ -78,5 +78,5 @@ go test ./... -cover
 - [ ] Artificial intelligence (Machine learning) detection
 - [ ] Create Go Benchmarks :revolving_hearts:
 - [ ] Create Go Examples
-- [ ] Run each algorithm in a separate Go Routine :heart_eyes:
+- [X] Run each algorithm in a separate Go Routine :heart_eyes: (based on Go Benchmarks, this is and slower option)
 
