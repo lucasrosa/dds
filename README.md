@@ -1,4 +1,4 @@
-# Enterprise Deceptive Domain Score
+# Deceptive Domain Score
 ![coverage](https://img.shields.io/badge/coverage-94%25-brightgreen.svg)
 ![build](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
